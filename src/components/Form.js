@@ -4,7 +4,7 @@ const Form = ({input,setInput,todo,setTodo}) => {
 
   const onInputChange=(event)=>{
     setInput(event.target.value);
-    console.log(input)
+     
   }
   const onSubmitHandler=(event)=>{
     setTodo([...todo,{
@@ -16,6 +16,7 @@ const Form = ({input,setInput,todo,setTodo}) => {
   }
 
   return (
+    <>
     <form onSubmit={onSubmitHandler}>
       <textarea
        onChange={onInputChange}
@@ -24,8 +25,9 @@ const Form = ({input,setInput,todo,setTodo}) => {
       /><br/>
       <button type='submit'>todo</button>
     </form>
+       <button onClick={()=>setInput('')}>clear</button>
+    </>
   );
 };
 
 export default Form;
- 
