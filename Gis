@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- 2. GOOGLE JQUERY JS v3.2.1  JS !-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- 3. BOOTSTRAP v4.0.0         JS !-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- MDB -->
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
+    ></script>
+
+    <style>
+      .highcharts-figure,
+      .highcharts-data-table table {
+        min-width: 320px;
+
+        max-width: 660px;
+
+        margin: 1em auto;
+      }
+
+      .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+
+        border-collapse: collapse;
+
+        border: 1px solid #ebebeb;
+
+        margin: 10px auto;
+
+        text-align: center;
+
+        width: 100%;
+
+        max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+        padding: 1em 0;
+
+        font-size: 1.2em;
+
+        color: #555;
+      }
+
+      .highcharts-data-table th {
+        font-weight: 600;
+
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+        padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+      }
+
+      .highcharts-label text {
+        font-size: 15px !important;
+      }
+	 .form-control:disabled {
+	  background-color:inherit;
+	  }
+    </style>
+
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+
+      <div class="container-fluid">
+        <!-- Toggle button -->
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+         
+          </a>
+
+          <!-- Left links -->
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Team</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+          </ul>
+
+          <!-- Left links -->
+        </div>
+
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+
+        <div class="d-flex align-items-center">
+          <!-- Icon -->
+
+          <a class="text-reset me-3" href="#">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+
+          <!-- Notifications -->
+
+          <div class="dropdown">
+            <a
+              class="text-reset me-3 dropdown-toggle hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-bell"></i>
+
+              <span class="badge rounded-pill badge-notification bg-danger"
+                >1</span
+              >
+            </a>
+
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="#">Some news</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">Another news</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Avatar -->
+
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle d-flex align-items-center hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuAvatar"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                class="rounded-circle"
+                height="25"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+              />
+            </a>
+
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuAvatar"
+            >
+              <li>
+                <a class="dropdown-item" href="#">My profile</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">Settings</a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right elements -->
+      </div>
+
+      <!-- Container wrapper -->
+    </nav>
+
+<nav class="nav nav-tabs nav-justified p-4">
+<a class="nav-item nav-link active show" data-toggle="tab" href="#dashboard">dashboard</a>
+<a class="nav-item nav-link" data-toggle="tab" href="#menu1">List Page</a>
+<a class="nav-item nav-link" data-toggle="tab" href="#menu2">Task List Page</a>
+</nav>
+
+<form class="row m-2 p-4 border" id="list__form" action="">
+        <div class="form-group col-md-2">
+          <label for="name">Name</label>
+          <input id="name" type="text" class="form-control" />
+        <div class="invalid-feedback">Please Enter Name</div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="status">Range</label>
+          <select name="" class="form-control" id="range">
+            <option  value="date-range" selected>Date Range</option>
+			 <option  value="date">Date </option>
+          </select>
+        <div class="invalid-feedback">Please Select Range</div>
+          </div>
+        <div class="form-group col-md-2">
+          <label for="startdate">Startdate</label>
+          <input type="date" class="form-control" id="startdate" />
+          <div class="invalid-feedback">Please Enter Date mm/dd/yyyy</div>
+         </div>
+        <div class="form-group col-md-2">
+          <label for="enddate">Enddate</label>
+          <input type="date" class="form-control" id="enddate" />
+          <div class="invalid-feedback">Please Enter date mm/dd/yyyy</div>
+         </div>
+        <div class="form-group col-md-2">
+          <label for="status">status</label>
+          <select name="" class="form-control" id="status">
+            <option selected value="Assigned">Assigned</option>
+            <option value="In Progress">In Progress</option>
+          </select>
+          <div class="invalid-feedback">Please Select Status</div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="" style="height: 18px"></label>
+          <button id="list__submit" class="btn btn-primary btn-block md-btn-inline">
+            Submit
+          </button>
+        </div>
+      <div class="alert alert-success" id="success-alert">
+          <strong class="my-4 mx-3">Success!</strong>
+          <button type="button" class="p-1 close" data-dismiss="alert">x</button>
+        </div>
+      </form>
+	  
+	  
+<div class="tab-content">
+
+  <main class="tab-pane fade active show p-1" id="dashboard">
+       <div class="container-fluid shadow-sm">
+      <div class="row border shadow-sm p-2">
+        <div class="col-md-6">
+          <figure class="highcharts-figure">
+            <div id="container_1"></div>
+          </figure>
+        </div>
+        <div class="col-md-6">
+          <figure class="highcharts-figure">
+            <div id="container_2"></div>
+          </figure>
+        </div>
+      </div>
+      <div class="border  shadow-sm">
+        <div id="container_3"></div>
+        <div class="d-flex m-2 p-3">
+          <div class="shadow-xl m-2 p-2" style="background-color: #434348">
+            <div class="text-white">
+              <span>Packages Delivered</span>
+              <span class="text-xl">1000,121</span>
+            </div>
+          </div>
+          <div
+            class="shadow-xl  p-2"
+            style="background-color: rgb(124, 181, 236)"
+          >
+            <div class="text-white">
+              <span>Packages Pending </span>
+
+              <span class="text-xl">1000,121</span>
+            </div>
+          </div>
+          <div class="shadow-xl  p-2" style="background-color: #90ed7d">
+            <div class="d-flex flex-column text-white">
+              <span># Weeks met Target</span>
+              <span class="text-xl">3 Weeks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class=" " id="container_4"></div>
+      </div>
+      <div class="row border ">
+        <div class="col-md-6 col-lg-8">
+          <div class=" " id="container_5"></div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div
+              class="shadow-xl m-2"
+              style="
+                background-color: rgb(221, 255, 255);
+                height: 80px;
+                width: 150px;
+              "
+            >
+              <div
+                class="h-100 d-flex flex-column justify-content-center align-items-center text-white"
+              >
+                <span class="text-black" style="font-size: 13px"
+                  >Data available</span
+                >
+
+                <span class="text-xl text-black">400</span>
+              </div>
+            </div>
+            <div
+              style="
+                background-color: rgb(118, 118, 123);
+                height: 80px;
+                width: 150px;
+              "
+              class="m-2 h-20 w-40 shadow-xl p-3"
+            >
+              <div class="text-white d-flex flex-column">
+                <span class="" style="font-size: 13px">Data Not available</span>
+
+                <span class="text-sm">200</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+	<div id="menu1" class="tab-pane fade">
+ <div class="container-fluid">
+    
+      <div class="m-2">
+        <table
+        id="list-view"
+        class="table table-sm md-table-lg table-bordered"
+      >
+        <thead>
+          <tr>
+            <th>Task link</th>
+            <th>Created</th>
+            <th>Assets Type</th>
+            <th>Task Lead</th>
+            <th>Task Status</th>
+            <th>Submitted by</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="tasklist-item">
+            <td name="task-link"><input class="form-control input border-0 p-0 " readonly type="text"></td>
+            <td name="created"><input class="form-control input border-0 p-0" readonly type="text"></td>
+            <td name="assets-type"><input class="form-control input border-0 p-0" readonly type="text"></td>
+            <td name="task-lead"><input class="form-control input border-0 p-0" readonly type="text"></td>
+            <td name="task-status"><input class="form-control input border-0 p-0" readonly type="text"></td>
+            <td name="submitted-by"><input class="form-control input border-0 p-0" readonly type="text"></td>
+            <td name="actions" class="gap-3   d-flex justify-content-center align-items-center">
+              <button
+                class="btn p-1 border-0 shadow-none bg-white"
+                data-toggle="modal"
+                data-target=".bd-example-modal-lg"
+              >
+                <i class="view fa fa-eye md-p-1"></i>
+              </button>
+              <button class="edit btn p-0 border-0 shadow-none bg-white">
+                <i class="edit fa fa-edit md-p-1"></i>
+              </button>
+              <button class="save btn d-none p-0 border-0 shadow-none bg-white">
+                <i class="save fa fa-save md-p-1"></i>
+              </button>
+              <button class="delete btn p-1 border-0 shadow-none bg-white">
+                <i class="delete fa fa-trash md-p-1"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
+ 
+<!-- Large modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+<div class="card-header d-flex justify-content-between">
+  <h5>Quick view</h5>
+  <button type="button" class="close btn " data-dismiss="modal" aria-label="Close">
+    <span  aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="card-body">
+  <div id="quick-view" class="row">
+   
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+   <!--end conatiner-->
+      </div>
+
+</div>
+<!-- validation modal -->
+ 
+ 
+<div id="validation-modal"  class="m-4 modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="card rounded">
+        <div class="card-header">
+          <div class="d-flex justify-content-between">
+            <h6  class="pt-3 delete-modal" >Please Fill All The Fields</h6>
+              <button type="button" class="close btn shadow-0" data-dismiss="modal" aria-label="Close">
+              <span class="p-4"  aria-hidden="true">&times;</span>
+            </button> 
+        </div>
+        <div class="d-flex justify-content-end">
+          
+          <button class="btn btn-sm btn-primary m-2 " data-dismiss="modal" aria-label="Close">cancel</button>
+        </div>
+      </div>
+        </div>
+      </div>
+</div>
+</div>
+
+
+<div id="menu2" class="tab-pane fade">
+    <div class="container-fluid">
+        <div class="m-2">
+        <table
+          id="task-table-list"
+          class="table table-sm md-table-lg table-bordered"
+        >
+          <thead>
+            <tr>
+              <th>Task owner</th>
+              <th>Task Name</th>
+              <th>Assigned Date</th>
+              <th>Assigned Type</th>
+              <th>Task Status</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr id="tasklist-item">
+                <td name="task-owner"><input class="form-control input border-0 p-0 " readonly type="text"></td>
+                <td name="task-name"><input class="form-control input border-0 p-0" readonly type="text"></td>
+                <td name="assigned-date"><input class="form-control input border-0 p-0" readonly type="text"></td>
+                <td name="task-lead"><input class="form-control input border-0 p-0" readonly type="text"></td>
+                <td name="task-status"><input class="form-control input border-0 p-0" readonly type="text"></td>
+                <td name="actions" style="gap:4px;border-bottom:none" class="d-flex pt-3 justify-content-center align-items-center">
+                <button
+                  class="btn p-0 border-0 shadow-none bg-white"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-lg"
+                >
+                  <i class="view fa fa-eye md-p-1"></i>
+                </button>
+                <button class="edit btn p-0 border-0 shadow-none bg-white">
+                  <i class="edit fa fa-edit md-p-1"></i>
+                </button>
+				        <button class="save btn d-none p-0 border-0 shadow-none bg-white">
+                  <i class="save fa fa-save md-p-1"></i>
+                </button>
+                <button class="delete btn p-0 border-0 shadow-none bg-white">
+                  <i class="delete fa fa-trash md-p-1"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+ 
+<div id="task-delete-modal"  class="m-4 modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between">
+            <h5  class="pt-3 delete-modal" >You want to delete this data</h5>
+            <!-- <button type="button" class="close btn " data-dismiss="modal" aria-label="Close">
+              <span class="p-4"  aria-hidden="true">&times;</span>
+            </button> -->
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-sm btn-danger m-2" onclick="deleteItem()">delete</button>
+          <button class="btn btn-sm btn-primary m-2 " data-dismiss="modal" aria-label="Close">cancel</button>
+        </div>
+      </div>
+        </div>
+      </div>
+</div>
+</div>
+<!-- Large modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="card">
+<div class="card-header bg-white d-flex justify-content-between">
+  <h5>Quick view</h5>
+  <button type="button" class="close btn " data-dismiss="modal" aria-label="Close">
+    <span  aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="card-body">
+  <div id="quick-view" class="row">
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+   <!--end conatiner-->
+      </div>
+
+</div>
+</div>
+   	<script src="./dashboard.js"> </script>
+	<script src="./list-page_script.js"> </script>
+	<script src="./task-page_script.js"> </script>
+  </body>
+</html>
